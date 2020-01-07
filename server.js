@@ -1,6 +1,7 @@
 const express= require("express");
 const expressEjsLayouts=require("express-ejs-layouts");
 const mongoose =require("mongoose");
+mongoose.set('debug', true);
 const config =require("./config");
 
 const app=express();
@@ -9,8 +10,7 @@ const app=express();
 
 mongoose.connect(config.mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology:true,
-  connectTimeoutMS:3
+  useUnifiedTopology:true
 }).then(()=>{
   console.log("MongoDB 连接成功！");
 }).catch(err=>{
@@ -19,6 +19,12 @@ mongoose.connect(config.mongoURI, {
 
 app.use(expressEjsLayouts);
 app.set("view engine","ejs");
+
+//express body useNewUrlParser
+
+app.use(express.urlencoded({
+  extended:false
+}))
 
 //load Router
 const userController = require("./router/user.js");

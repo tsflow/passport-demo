@@ -12,6 +12,20 @@
       "load": "",
       "modules": ""
     },
-    "commonjs": {}
+    "commonjs": {},
+    "complete_strings": {
+      "maxLength": 15
+    },
+    "modules": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "es_modules": {},
+    "requirejs": {
+      "baseURL": "",
+      "paths": "",
+      "override": ""
+    }
   }
 }
